@@ -1,0 +1,211 @@
+# ==============================================================================
+# Git Ignore Configuration — CodeAlpha Task 3: Handwritten Character Recognition
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Environment Variables, Secrets & Credentials
+# ------------------------------------------------------------------------------
+.env
+.env.*
+*.env
+*.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+frontend/.env
+backend-gateway/.env
+ml-service/.env
+
+# Whitelist safe environment templates
+!.env.example
+!*.env.example
+!.env.template
+!*.env.template
+
+# Security credentials, private keys & certificates
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+id_rsa*
+*.id_rsa
+
+# ------------------------------------------------------------------------------
+# 2. Node.js & Frontend (Next.js 16)
+# ------------------------------------------------------------------------------
+node_modules/
+frontend/node_modules/
+.pnpm-store/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Next.js build, cache & export outputs
+.next/
+out/
+build/
+frontend/.next/
+frontend/out/
+frontend/build/
+.turbo/
+.parcel-cache/
+
+# TypeScript & bundle build info
+*.tsbuildinfo
+frontend/*.tsbuildinfo
+
+# Frontend test results & coverage
+frontend/test-results/
+frontend/playwright-report/
+frontend/coverage/
+
+# ------------------------------------------------------------------------------
+# 3. Backend Gateway (Go / Gin & WSL Runtime)
+# ------------------------------------------------------------------------------
+# Compiled Go executables and binaries
+backend-gateway/gateway
+backend-gateway/gateway.exe
+backend-gateway/gateway-linux
+gateway
+gateway.exe
+gateway-linux
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# WSL background daemon and PID trackers
+backend-gateway/.gateway-wsl.pid
+*.pid
+*.pid.lock
+*.seed
+
+# ------------------------------------------------------------------------------
+# 4. Python Runtime, Bytecode & Virtual Environments (ml-service)
+# ------------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+*.pyo
+.Python
+ml-service/**/__pycache__/
+
+# Python packaging & distribution artifacts
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+/lib/
+/lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+ml-service/.venv/
+
+# Testing, typing & coverage caches
+.pytest_cache/
+.pytest_tmp/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.eslintcache
+
+# ------------------------------------------------------------------------------
+# 5. Datasets, Model Checkpoints & Experimental Artifacts
+# ------------------------------------------------------------------------------
+# Raw EMNIST dataset archives & extracted bytes (downloaded automatically)
+ml-service/data/
+*.gz
+*.idx3-ubyte
+*.idx1-ubyte
+
+# Experimental training runs and alternative model checkpoints
+ml-service/saved_models_*/
+saved_models_*/
+
+# Large weight formats
+*.safetensors
+*.ckpt
+*.h5
+*.onnx
+*.weights
+
+# Ensure baseline model artifacts are tracked for out-of-the-box evaluation
+!ml-service/saved_models/
+!ml-service/saved_models/model.pt
+!ml-service/saved_models/metrics.json
+!ml-service/saved_models/samples.json
+
+# ------------------------------------------------------------------------------
+# 6. Logs & Runtime Diagnostic Output
+# ------------------------------------------------------------------------------
+*.log
+.logs/
+logs/
+frontend/.logs/
+backend-gateway/.logs/
+ml-service/.logs/
+
+# ------------------------------------------------------------------------------
+# 7. Operating System & Editor Metadata
+# ------------------------------------------------------------------------------
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+desktop.ini
+$RECYCLE.BIN/
+
+# IDEs & code editors
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+*.bak
+*.sublime-project
+*.sublime-workspace
+
+# Crash dumps & core files
+*.dmp
+*.stackdump
+core
+core.*
+
+# ------------------------------------------------------------------------------
+# 8. Presentation Slides & Local Documentation Artifacts
+# ------------------------------------------------------------------------------
+presentation_slides.html
