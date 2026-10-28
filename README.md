@@ -6,6 +6,24 @@ Recognize **single English letters A–Z and digits 0–9** from handwriting usi
 
 **Stack:** Next.js 16 App Router · TypeScript · Redux Toolkit + React Redux · shadcn/ui · Gin (Go), following MVC · FastAPI · PyTorch.
 
+## Screenshot Gallery
+
+| Recognition studio | Character prediction |
+|:---:|:---:|
+| <a href="./screenshots/1.png"><img src="./screenshots/1.png" alt="InkLab recognition studio with character drawing canvas and EMNIST samples" width="100%"></a> | <a href="./screenshots/2.png"><img src="./screenshots/2.png" alt="Handwritten digit recognition result with top candidate scores" width="100%"></a> |
+
+| EMNIST sample recognition | Model Lab |
+|:---:|:---:|
+| <a href="./screenshots/4.png"><img src="./screenshots/4.png" alt="Recognition studio processing an EMNIST benchmark sample" width="100%"></a> | <a href="./screenshots/3.png"><img src="./screenshots/3.png" alt="CNN architecture, training metrics, and per-character performance in Model Lab" width="100%"></a> |
+
+| Hand-drawn letter recognition | Image upload recognition |
+|:---:|:---:|
+| <a href="./screenshots/5.png"><img src="./screenshots/5.png" alt="Hand-drawn letter recognized by the CNN" width="100%"></a> | <a href="./screenshots/6.png"><img src="./screenshots/6.png" alt="Uploaded handwritten character and model prediction" width="100%"></a> |
+
+| Prediction history |
+|:---:|
+| <a href="./screenshots/7.png"><img src="./screenshots/7.png" alt="Prediction history with input previews, model scores, and export controls" width="100%"></a> |
+
 ## Start the app
 
 Prerequisites: Node.js 20.9+, Go 1.24+, and Python 3.11–3.13. The verified local environment uses Node 24, Go 1.26, and Python 3.13 with CPU PyTorch 2.7.1.

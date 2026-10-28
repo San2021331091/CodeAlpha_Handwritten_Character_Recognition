@@ -75,7 +75,16 @@ try {
     if ($UseWSL) {
         $gateway = Start-Process -FilePath 'wsl.exe' -ArgumentList @('--distribution','Ubuntu','--cd',('"' + $goDir + '"'),'--exec','/usr/bin/env',"ML_SERVICE_URL=http://${mlHost}:8100",'GATEWAY_ADDR=0.0.0.0:3101','/bin/sh','-c','"echo $$ > .gateway-wsl.pid; exec ./gateway-linux"') -WindowStyle Hidden -RedirectStandardOutput (Join-Path $logDir 'gateway.out.log') -RedirectStandardError (Join-Path $logDir 'gateway.err.log') -PassThru
     } else {
-        $gateway = Start-Process -FilePath (Join-Path $goDir 'gateway.exe') -WorkingDirectory $goDir -WindowStyle Hidden -RedirectStandardOutput (Join-Path $logDir 'gateway.out.log') -RedirectStandardError (Join-Path $logDir 'gateway.err.log') -PassThru
+        $previousMLServiceURL = $env:ML_SERVICE_URL
+        $previousGatewayAddress = $env:GATEWAY_ADDR
+        try {
+            $env:ML_SERVICE_URL = "http://${mlHost}:8100"
+            $env:GATEWAY_ADDR = '127.0.0.1:3101'
+            $gateway = Start-Process -FilePath (Join-Path $goDir 'gateway.exe') -WorkingDirectory $goDir -WindowStyle Hidden -RedirectStandardOutput (Join-Path $logDir 'gateway.out.log') -RedirectStandardError (Join-Path $logDir 'gateway.err.log') -PassThru
+        } finally {
+            $env:ML_SERVICE_URL = $previousMLServiceURL
+            $env:GATEWAY_ADDR = $previousGatewayAddress
+        }
     }
     $owned += $gateway
     Wait-Ready "$gatewayBase/api/health" $true

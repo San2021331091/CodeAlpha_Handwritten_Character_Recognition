@@ -6,9 +6,7 @@ export const metadata: Metadata = {
   description:
     "Draw a letter or digit. Explore a real convolutional neural network. CodeAlpha Machine Learning Task 3.",
 };
-export const RootLayout: React.FC<{
-  children: React.ReactNode;
-}> = ({ children }) => {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
@@ -16,4 +14,4 @@ export const RootLayout: React.FC<{
       </body>
     </html>
   );
-};
+}

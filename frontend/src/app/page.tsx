@@ -8,7 +8,7 @@ import { ModelLab } from "@/components/model-lab";
 import { History } from "@/components/history";
 import { loadLab, setTab, useAppDispatch, useAppSelector } from "@/lib/store";
 
-export const Home: React.FC = ():React.JSX.Element => {
+export default function Home(): React.JSX.Element {
   const { tab, metrics, loading, connectionError } = useAppSelector((s) => s.lab);
   const dispatch = useAppDispatch();
 
